@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Blog{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'admin/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'admin/css/main.css' %}">
+    <style>
+        /* your main.css styles */
+        div > h1 {
+            color: #09b3bf;
+        }
+
+        body > div > div > ol > li {
+            margin: 0 5px;
+        }
+
+        div.container-image > img {
+            width: 100%;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 18px;
+            }
+        }
+
+        body {
+            background-image: url('../img/bg.jpg');
+            background-repeat: repeat-y;
+        }
+
+        div > h1 {
+            color: #fff;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        body > div > nav > div > a > h4 {
+            color: #fff;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        .article-block {
+            background: #fff;
+            color: #383838;
+            font-family: 'Ubuntu', sans-serif;
+            box-shadow: 2px 2px 1px #ccc;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .article-block a {
+            color: #383838;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        body > div > div > ol > li {
+            margin: 0 5px;
+        }
+
+        div.container-image > img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Персональний блог</h1>
+        {% block content %}
+        {% spaceless %}
+        <div>
+            <ol class="breadcrumb">
+                <li><a href="/">Головна</a></li>
+                <li><a href="{% url 'articles-list' %}">Публікації</a></li>
+                <li>{{ item.title|upper }}</li>
+            </ol>
+        </div>
+        <div>
+            <h3>{{ item.title }}</h3>
+            <h5>{{ item.pub_date|date:"d E Y"|safe|linebreaks }}</h5>
+        </div>
+        <div>
+            {{ item.description|escape|safe }}
+
+            {% if item.images.all %}
+                {% include 'fotorama.html' with images=images %}
+            {% endif %}
+        </div>
+        <div class='clearfix'></div>
+        {% endspaceless %}
+        {% endblock %}
+    </div>
+    <script src="{% static 'admin/js/jquery.js' %}" crossorigin="anonymous"></script>
+    <script src="{% static 'admin/js/bootstrap.min.js' %}" crossorigin="anonymous"></script>
+</body>
+</html>

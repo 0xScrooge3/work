@@ -1,0 +1,79 @@
+/* main.css */
+
+/* Загальні стилі */
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+body {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    text-align: center;
+}
+
+
+body {
+    background-image: url('../img/bg.jpg');
+    background-repeat: repeat-y;
+    font-family: 'Ubuntu', sans-serif;
+    color: #383838;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Стилі для заголовків h1 */
+div > h1 {
+    color: #09b3bf; /* Зберігаємо ваш оригінальний колір */
+    font-family: 'Ubuntu', sans-serif; /* Зберігаємо шрифт */
+}
+
+/* Стилі для списку категорій у навігації */
+body > div > nav > div > a > h4 {
+    color: #fff; /* Зберігаємо ваш оригінальний колір */
+    font-family: 'Ubuntu', sans-serif; /* Зберігаємо шрифт */
+}
+
+/* Стилі для блоку статті */
+.article-block {
+    background: #fff;
+    color: #383838;
+    font-family: 'Ubuntu', sans-serif;
+    box-shadow: 2px 2px 1px #ccc;
+    padding: 10px;
+    margin: 10px;
+}
+
+.article-block a {
+    color: #383838;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+/* Стилі для зображень у контейнері */
+div.container-image > img {
+    width: 100%;
+}
+
+/* Стилі для хлібних крихт */
+body > div > div > ol > li {
+    margin: 0 5px; /* Зберігаємо ваш оригінальний margin */
+}
+
+/* Медіа-запит для мобільних пристроїв */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 18px;
+    }
+}
+
